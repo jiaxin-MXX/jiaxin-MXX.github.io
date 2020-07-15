@@ -1,0 +1,183 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>gitFilesDirectory | 我的小窝</title><meta name="description" content=".git文件简介： git init的文件显示     git clone的文件显示     当git init的文件夹进行第一次commit操作之后两者的文件就会变得相同：  文件以及作用：hooks 存放一些shell脚本，他的实现的功能是与响应的git动作相关,相关文档请看这里~  info 存放一些信息，其中保存了一份不希望在 .gitignore 文件中管理的忽略的全局可执行文件  12"><meta name="keywords" content="git"><meta name="author" content="贾鑫"><meta name="copyright" content="贾鑫"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="dns-prefetch" href="https://fonts.googleapis.com"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="gitFilesDirectory"><meta name="twitter:description" content=".git文件简介： git init的文件显示     git clone的文件显示     当git init的文件夹进行第一次commit操作之后两者的文件就会变得相同：  文件以及作用：hooks 存放一些shell脚本，他的实现的功能是与响应的git动作相关,相关文档请看这里~  info 存放一些信息，其中保存了一份不希望在 .gitignore 文件中管理的忽略的全局可执行文件  12"><meta name="twitter:image" content="http://yoursite.com/2020/05/19/life20200519/life.jpg"><meta property="og:type" content="article"><meta property="og:title" content="gitFilesDirectory"><meta property="og:url" content="http://yoursite.com/2020/07/15/gitFilesDirectory/"><meta property="og:site_name" content="我的小窝"><meta property="og:description" content=".git文件简介： git init的文件显示     git clone的文件显示     当git init的文件夹进行第一次commit操作之后两者的文件就会变得相同：  文件以及作用：hooks 存放一些shell脚本，他的实现的功能是与响应的git动作相关,相关文档请看这里~  info 存放一些信息，其中保存了一份不希望在 .gitignore 文件中管理的忽略的全局可执行文件  12"><meta property="og:image" content="http://yoursite.com/2020/05/19/life20200519/life.jpg"><meta property="article:published_time" content="2020-07-15T11:30:38.000Z"><meta property="article:modified_time" content="2020-07-15T11:37:02.424Z"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = '1'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="http://yoursite.com/2020/07/15/gitFilesDirectory/"><link rel="next" title="FanS" href="http://yoursite.com/2020/05/29/FanS/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'false',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: true  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/touxiang.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">12</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">10</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">12</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时光</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于我</span></a></div></div></div></div><i class="fa fa-arrow-right on" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git文件简介："><span class="toc-number">1.</span> <span class="toc-text">.git文件简介：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件以及作用："><span class="toc-number">1.0.1.</span> <span class="toc-text">文件以及作用：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#hooks"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">hooks</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#info"><span class="toc-number">1.0.1.2.</span> <span class="toc-text">info</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#logs"><span class="toc-number">1.0.1.3.</span> <span class="toc-text">logs</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#objects"><span class="toc-number">1.0.1.4.</span> <span class="toc-text">objects</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#refs"><span class="toc-number">1.0.1.5.</span> <span class="toc-text">refs</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#COMMIT-EDITMSG"><span class="toc-number">1.0.1.6.</span> <span class="toc-text">COMMIT_EDITMSG</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#config"><span class="toc-number">1.0.1.7.</span> <span class="toc-text">config</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#description"><span class="toc-number">1.0.1.8.</span> <span class="toc-text">description</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#FETCH-HEAD"><span class="toc-number">1.0.1.9.</span> <span class="toc-text">FETCH_HEAD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HEAD"><span class="toc-number">1.0.1.10.</span> <span class="toc-text">HEAD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#index"><span class="toc-number">1.0.1.11.</span> <span class="toc-text">index</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#packed-refs"><span class="toc-number">1.0.1.12.</span> <span class="toc-text">packed-refs</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div><div id="body-wrap"><div id="web_bg" data-type="photo"></div><div class="post-bg" id="nav" style="background-image: url(/2020/05/19/life20200519/life.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">我的小窝</a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时光</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于我</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">gitFilesDirectory</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-07-15 19:30:38"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2020-07-15</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-07-15 19:37:02"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-07-15</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/git/">git</a><i class="fa fa-angle-right post-meta__separator" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/git/%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95/">文件目录</a></span></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"></span><span class="post-meta-commentcount"><i class="post-meta__icon fa fa-comment-o" aria-hidden="true"></i><span>评论数:</span><a href="/2020/07/15/gitFilesDirectory/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count comment-count" data-xid="/2020/07/15/gitFilesDirectory/" itemprop="commentCount"></span></a></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h1 id="git文件简介："><a href="#git文件简介：" class="headerlink" title=".git文件简介："></a>.git文件简介：</h1><ul>
+<li>git init的文件显示</li>
+</ul>
+<img src="/2020/07/15/gitFilesDirectory/gitinit.png" alt="git init" style="zoom:80%;">
+
+<ul>
+<li>git clone的文件显示</li>
+</ul>
+<img src="/2020/07/15/gitFilesDirectory/gitclone.png" style="zoom:80%;">
+
+<blockquote>
+<p>当git init的文件夹进行第一次commit操作之后两者的文件就会变得相同：</p>
+</blockquote>
+<h3 id="文件以及作用："><a href="#文件以及作用：" class="headerlink" title="文件以及作用："></a>文件以及作用：</h3><h4 id="hooks"><a href="#hooks" class="headerlink" title="hooks"></a>hooks</h4><blockquote>
+<p>存放一些shell脚本，他的实现的功能是与响应的git动作相关,相关文档请看<a href="https://www.cnblogs.com/StitchSun/articles/4712287.html" target="_blank" rel="noopener">这里~</a></p>
+</blockquote>
+<h4 id="info"><a href="#info" class="headerlink" title="info"></a>info</h4><blockquote>
+<p>存放一些信息，其中保存了一份不希望在 .gitignore 文件中管理的忽略的全局可执行文件</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># git ls-files --others --exclude-from&#x3D;.git&#x2F;info&#x2F;exclude</span><br><span class="line"># Lines that start with &#39;#&#39; are comments.</span><br><span class="line"># For a project mostly in C, the following would be a good set of</span><br><span class="line"># exclude patterns (uncomment them if you want to use them):</span><br><span class="line"># *.[oa]</span><br><span class="line"># *~</span><br></pre></td></tr></table></figure>
+
+<h4 id="logs"><a href="#logs" class="headerlink" title="logs"></a>logs</h4><blockquote>
+<p>记录了本地仓库和远程仓库的每一个分支的提交信息，即所有 commit 对象都会被记录在此，这个文件夹内容应该是我们查看最频繁的，如 git log</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">d9b76de8ba4e81b436123c889a3522eb6fc2b8ab	&#x2F;&#x2F;上一次提交的hash值</span><br><span class="line">b6ecc58539919d026c48c6c6a528fdbc248ac88c	&#x2F;&#x2F;本次提交的hash值</span><br><span class="line">tutu123456_jiaxinmxx		&#x2F;&#x2F;用户名</span><br><span class="line">&lt;jiaxinmxx@163.com&gt;			&#x2F;&#x2F;邮箱</span><br><span class="line">1594796913 +0800			&#x2F;&#x2F;Linux时间，东八区</span><br><span class="line">reset: moving to HEAD^2		&#x2F;&#x2F;提交信息</span><br></pre></td></tr></table></figure>
+
+<h4 id="objects"><a href="#objects" class="headerlink" title="objects"></a>objects</h4><blockquote>
+<p>这里保存 git 对象，git 中的一些操作以及文件都会以 git 对象形式保存在这里，git 对象分为 <strong>BLOB</strong>，<strong>tree</strong>，<strong>commit</strong> 三种类型。</p>
+</blockquote>
+<img src="/2020/07/15/gitFilesDirectory/object.png" alt="object" style="zoom:80%;">
+
+<h4 id="refs"><a href="#refs" class="headerlink" title="refs"></a>refs</h4><blockquote>
+<p>该文件夹保存了指向分支的提交对象也就是 commit 对象的指针，其中的 heads 文件夹存储了本地每一个分支最近一次提交的 id 值。每个分支一个文件；remotes 文件夹则记录你最后一次和远程仓库的通信，也就是说这里会记录最后一次每个分支推送到远端的值；tags 文件夹存储分支别名。</p>
+</blockquote>
+<img src="/2020/07/15/gitFilesDirectory/refs.png" alt="refs" style="zoom:80%;">
+
+<p><code>heads</code>文件(本地现在有两个分支=&gt;jiaxin和master分支)</p>
+<img src="/2020/07/15/gitFilesDirectory/heads.png" style="zoom:80%;">
+
+<h4 id="COMMIT-EDITMSG"><a href="#COMMIT-EDITMSG" class="headerlink" title="COMMIT_EDITMSG"></a>COMMIT_EDITMSG</h4><blockquote>
+<p>记录了最后一次提交时的注释信息</p>
+</blockquote>
+<h4 id="config"><a href="#config" class="headerlink" title="config"></a>config</h4><blockquote>
+<p>这里存储项目的一些配置信息。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[core]</span><br><span class="line">	repositoryformatversion &#x3D; 0</span><br><span class="line">	filemode &#x3D; false</span><br><span class="line">	bare &#x3D; false</span><br><span class="line">	logallrefupdates &#x3D; true</span><br><span class="line">	symlinks &#x3D; false</span><br><span class="line">	ignorecase &#x3D; true</span><br><span class="line">[remote &quot;origin&quot;]</span><br><span class="line">	url &#x3D; yourUrl</span><br><span class="line">	fetch &#x3D; +refs&#x2F;heads&#x2F;*:refs&#x2F;remotes&#x2F;origin&#x2F;*</span><br><span class="line">[branch &quot;master&quot;]</span><br><span class="line">	remote &#x3D; origin</span><br><span class="line">	merge &#x3D; refs&#x2F;heads&#x2F;master</span><br><span class="line">[gui]</span><br><span class="line">	wmstate &#x3D; normal</span><br><span class="line">	geometry &#x3D; 841x483+715+252 189 218</span><br></pre></td></tr></table></figure>
+
+<h4 id="description"><a href="#description" class="headerlink" title="description"></a>description</h4><blockquote>
+<p>仅供 GitWeb 程序使用</p>
+</blockquote>
+<h4 id="FETCH-HEAD"><a href="#FETCH-HEAD" class="headerlink" title="FETCH_HEAD"></a>FETCH_HEAD</h4><blockquote>
+<p>某个分支在远程仓库的最新状态</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">b6ecc58539919d026c48c6c6a528fdbc248ac88c		</span><br><span class="line">branch &#39;master&#39; of https:&#x2F;&#x2F;github.com&#x2F;jiaxin-MXX&#x2F;gittest</span><br></pre></td></tr></table></figure>
+
+<h4 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h4><blockquote>
+<p>该文件指明了本地的分支结果，如本地分支是 master，那么 HEAD 就指向 master，分支在 refs 中就会表示成<code>refs:refs/heads/master</code></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ref: refs/heads/jiaxin</span><br></pre></td></tr></table></figure>
+
+<h4 id="index"><a href="#index" class="headerlink" title="index"></a>index</h4><blockquote>
+<p>该文件 stage 暂存区信息，也就是 add 之后保存到的区域，内容包括它指向的文件的时间戳，文件名，hash值等</p>
+</blockquote>
+<h4 id="packed-refs"><a href="#packed-refs" class="headerlink" title="packed-refs"></a>packed-refs</h4><blockquote>
+<p>clone仓库时所有的引用</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># pack-refs with: peeled fully-peeled sorted </span><br><span class="line">b6ecc58539919d026c48c6c6a528fdbc248ac88c refs&#x2F;remotes&#x2F;origin&#x2F;master</span><br></pre></td></tr></table></figure>
+
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">贾鑫</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yoursite.com/2020/07/15/gitFilesDirectory/">http://yoursite.com/2020/07/15/gitFilesDirectory/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yoursite.com" target="_blank">我的小窝</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/git/">git</a></div><div class="post_share"><div class="social-share" data-image="/2020/05/19/life20200519/life.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button button--primary button--animated"> <i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="post-qr-code__img" src="/img/wechars.png" alt="微信"/><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="post-qr-code__img" src="/img/zhifubao.png" alt="支付宝"/><div class="post-qr-code__desc">支付宝</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/2020/05/29/FanS/"><img class="next_cover" src="/2020/05/29/FanS/FanS.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">FanS</div></div></a></div></nav><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div class="vcomment" id="vcomment"></div><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var requestSetting = function (from,set) {
+  var from = from
+  var setting = set.split(',').filter(function(item){
+  return from.indexOf(item) > -1
+  });
+  setting = setting.length == 0 ? from :setting;
+  return setting
+}
+
+var guestInfo = requestSetting(['nick','mail','link'],'nick,mail')
+var requiredFields = requestSetting(['nick','mail','link'],'nick,mail')
+
+window.valine = new Valine({
+  el:'#vcomment',
+  appId: 'vTzpXi69EHJlhj8nJ2uk3wA3-gzGzoHsz',
+  appKey: 'Lchc4tBoQIekOiaNwoJxHP9q',
+  notify: false,
+  verify: false,
+  placeholder: '你有什么想对我说的~',
+  avatar: 'monsterid',
+  meta: guestInfo,
+  pageSize: '10',
+  lang: 'zh-CN',
+  recordIP: true,
+  serverURLs: '',
+  emojiCDN: '',
+  emojiMaps: "",
+  enableQQ: true,
+  requiredFields: requiredFields
+});</script></div></article></main><footer id="footer" style="background-image: url(/2020/05/19/life20200519/life.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 By 贾鑫</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script></body></html>
